@@ -1,0 +1,318 @@
+$noBorder: none;
+$noMargen: 0%;
+$colorR: #eff3f6;
+
+@mixin cuerpo($oculto, $margen, $color) {
+    overflow-x: $oculto;
+    margin: $margen;
+    background-color: $color;
+
+}
+
+@mixin inputs {
+    /*Inputs*/
+    border-radius: 3px;
+    display: flex;
+    height: calc(6vh);
+    flex-direction: row;
+    border: 1px solid black;
+    align-items: center;
+    padding-right: 35%;
+
+    position: relative;
+    left: -160px;
+
+    label[for] {
+        border-right: 1px solid black;
+        margin-right: 1%;
+        padding: 4%;
+    }
+
+
+
+
+
+}
+
+body {
+    @include cuerpo(hidden, $noMargen , $colorR );
+}
+
+header {
+    /*Header*/
+    background-image: linear-gradient(to right, #c82121, rgb(160, 45, 103), purple, rgb(112, 53, 194), #313988);
+    display: flex;
+    flex-direction: column;
+    height: calc(22vh);
+    width: 100%;
+
+
+    .menu {
+        /*Menu */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        li {
+
+            display: inline;
+            margin: 0.25%;
+
+            img {
+                width: 15%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            a {
+
+                color: white;
+                font-weight: bold;
+                font-style: inherit;
+                text-decoration: none;
+
+                .material-symbols-outlined {
+                    margin-top: 5%;
+
+                }
+
+
+
+            }
+        }
+
+    }
+
+    .formulario {
+        /*Formulario*/
+
+        display: flex;
+        background-color: white;
+        border: 1px solid black;
+        position: absolute;
+        right: 18%;
+        width: 60vw;
+        height: 12%;
+        top: 16%;
+        border-radius: 10px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .formulario-centro {
+            display: flex;
+            flex-direction: row;
+            gap: 7%;
+
+            .input1 {
+                @include inputs;
+
+                #desde {
+                    border: $noBorder;
+                    padding-left: 7%
+                }
+            }
+
+            .input2 {
+                @include inputs;
+
+
+                #hasta {
+                    border: $noBorder;
+                    padding-left: 7%
+                }
+
+            }
+
+
+        }
+    }
+
+}
+
+.ocultar {
+
+    width: 70%;
+    overflow: hidden;
+    margin: 6%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+    border-radius: 10px;
+
+    .slider {
+        /*Slider*/
+
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        align-items: center;
+        height: fit-content;
+        box-shadow: 2px 2px 2px #7e7e7e;
+
+
+
+        width: 500%;
+        overflow: hidden;
+
+
+        .img {
+            width: 100%;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                overflow: hidden;
+                animation: movimiento 25s infinite;
+                border-radius: 10px;
+            }
+        }
+
+        @keyframes movimiento {
+            0% {
+                transform: translateX(0%);
+            }
+
+            25% {
+                transform: translateX(-100%)
+            }
+
+            50% {
+                transform: translateX(-200%)
+            }
+
+            75% {
+                transform: translateX(-300%)
+            }
+
+            100% {
+                transform: translateX(-400%)
+            }
+
+
+        }
+
+
+    }
+}
+
+#otpBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    #bloque1,
+    #bloque2,
+    #bloque3,
+    #bloque4,
+    #bloque5,
+    #bloque6 {
+        background-color: rgb(255, 255, 255);
+        width: 30vw; 
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        margin: 20px;
+
+        p,
+        h3,
+        a {
+            margin: 1em;
+            font-size: larger;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+            width: 100%;
+        }
+
+    }
+
+
+
+
+}
+
+#footer {
+    ul {
+      background-color: #cfcfcf;
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      a {
+        color: rgb(101, 101, 101);
+        text-decoration: none;
+        padding: 1em;
+        
+      }
+    }
+    
+    .copyrigth {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+
+  @media (max-width:1226px){
+    
+    header{
+        .formulario{
+            
+            height: fit-content;
+
+            flex-direction: column;
+            .formulario-centro {
+                
+                flex-direction: column;
+                align-content: center;
+                align-items: center;
+                gap: 10px;
+                
+                label[for]{
+                    border-right: inset
+                }
+                .input1, .input2{
+                    position: inherit;     
+                     
+                }
+        }
+    }
+}
+
+main{
+
+    .ocultar{
+        margin-top: 10%;
+    }
+}
+    
+    
+    #otpBlock{
+        display: flex;
+    flex-direction: column;
+    #bloque1,
+    #bloque2,
+    #bloque3,
+    #bloque4,
+    #bloque5,
+    #bloque6 {
+        width:  100vh;
+    }
+
+    }
+    
+  }
